@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1663854271 source:c:\users\utente\desktop\programmazione\my projects\capitolo 8\9) tabella percorso\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
