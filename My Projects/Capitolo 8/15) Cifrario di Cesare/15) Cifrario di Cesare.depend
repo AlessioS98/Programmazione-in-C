@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1664202227 source:c:\users\utente\desktop\programmazione\my projects\capitolo 8\15) cifrario di cesare\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
