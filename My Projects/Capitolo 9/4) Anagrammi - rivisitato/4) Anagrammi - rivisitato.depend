@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1664375624 source:c:\users\utente\desktop\programmazione\my projects\capitolo 9\4) anagrammi - rivisitato\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
