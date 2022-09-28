@@ -19,7 +19,7 @@ int main()
         ch=getchar();
         j++;
     }
-    printf("Inserisci la seconda frase: ");
+    printf("Inserisci la seconda parola: ");
     ch=getchar();
     for(i=0; ch!='\n'; i++)
     {
