@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1664471802 source:c:\users\utente\desktop\programmazione\my projects\capitolo 9\8) giochino\main.c
+	<stdio.h>
+	<time.h>
+	<stdbool.h>
+	<stdlib.h>
+
