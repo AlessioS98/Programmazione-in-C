@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1665588956 source:c:\users\utente\desktop\programmazione\my projects\capitolo 13\1) parola grande e piccola\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
