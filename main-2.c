@@ -65,6 +65,7 @@ int main()
                         if(strcmp(mounth_str, reminders[i])==0)
                         {
                             strcpy(mesegiorno, mounth_str);
+                            strcat(mesegiorno, "/");
                             strcat(mesegiorno, day_str);
                             if(strcmp(mesegiorno, reminders[i])<0)
                             {
@@ -73,8 +74,11 @@ int main()
                                 if(strcmp(mesegiorno, reminders[i])==0)
                                 {
                                     strcpy(oraminuti, mounth_str);
+                                    strcat(oraminuti, "/");
                                     strcat(oraminuti, day_str);
+                                    strcat(oraminuti, " ");
                                     strcat(oraminuti, hour_str);
+                                    strcat(oraminuti, ":");
                                     strcat(oraminuti, minute_str);
                                     if(strcmp(oraminuti, reminders[i])<0)
                                     {
@@ -83,9 +87,13 @@ int main()
                                         if(strcmp(oraminuti, reminders[i])==0)
                                         {
                                             strcpy(msn, mounth_str);
+                                            strcat(msn, "/");
                                             strcat(msn, day_str);
+                                            strcat(msn, " ");
                                             strcat(msn, hour_str);
+                                            strcat(msn, ":");
                                             strcat(msn, minute_str);
+                                            strcat(msn, " ");
                                             strcat(msn, msg_str);
                                             if(strcmp(msn, reminders[i])<0)
                                             {
