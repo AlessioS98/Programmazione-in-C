@@ -24,6 +24,7 @@ int main()
     char reminders[MAX_REMIND][MSG_LEN+3];
     char day_str[3], hour_str[3], minute_str[3], mounth_str[3], msg_str[MSG_LEN+1];
     int day, i, j, num_remind=0;
+    char mesegiorno[6], oraminuti[12], msn[73];
     int mese, giorno, ore, minuti;
     for(;;)
     {
@@ -60,6 +61,41 @@ int main()
                     if(strcmp(mounth_str, reminders[i])<0)
                     {
                         break;
+                    }else{
+                        if(strcmp(mounth_str, reminders[i])==0)
+                        {
+                            strcpy(mesegiorno, mounth_str);
+                            strcat(mesegiorno, day_str);
+                            if(strcmp(mesegiorno, reminders[i])<0)
+                            {
+                                break;
+                            }else{
+                                if(strcmp(mesegiorno, reminders[i])==0)
+                                {
+                                    strcpy(oraminuti, mounth_str);
+                                    strcat(oraminuti, day_str);
+                                    strcat(oraminuti, hour_str);
+                                    strcat(oraminuti, minute_str);
+                                    if(strcmp(oraminuti, reminders[i])<0)
+                                    {
+                                        break;
+                                    }else{
+                                        if(strcmp(oraminuti, reminders[i])==0)
+                                        {
+                                            strcpy(msn, mounth_str);
+                                            strcat(msn, day_str);
+                                            strcat(msn, hour_str);
+                                            strcat(msn, minute_str);
+                                            strcat(msn, msg_str);
+                                            if(strcmp(msn, reminders[i])<0)
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 for(j=num_remind; j>i; j--)
