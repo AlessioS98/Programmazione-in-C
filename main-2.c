@@ -51,10 +51,38 @@ int main()
                         goto salto;
                     }
                 }
-                sprintf(day_str, "%d", giorno);
-                sprintf(mounth_str, "%d", mese);
-                sprintf(hour_str, "%d", ore);
-                sprintf(minute_str, "%d", minuti);
+                if(giorno>=1 && giorno<=9)
+                {
+                    sprintf(day_str, "%d", giorno);
+                    day_str[1]=day_str[0];
+                    day_str[0]='0';
+                }else{
+                    sprintf(day_str, "%d", giorno);
+                }
+                if(mese>=1 && mese<=9)
+                {
+                    sprintf(mounth_str, "%d", mese);
+                    mounth_str[1]=mounth_str[0];
+                    mounth_str[0]='0';
+                }else{
+                    sprintf(mounth_str, "%d", mese);
+                }
+                if(ore>=1 && ore<=9)
+                {
+                    sprintf(hour_str, "%d", ore);
+                    hour_str[1]=hour_str[0];
+                    hour_str[0]='0';
+                }else{
+                    sprintf(hour_str, "%d", ore);
+                }
+                if(minuti>=1 && minuti<=9)
+                {
+                    sprintf(minute_str, "%d", minuti);
+                    minute_str[1]=minute_str[0];
+                    minute_str[0]='0';
+                }else{
+                    sprintf(minute_str, "%d", minuti);
+                }
                 read_line(msg_str, MSG_LEN);
                 for(i=0; i<num_remind; i++)
                 {
