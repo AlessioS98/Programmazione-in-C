@@ -121,7 +121,6 @@ int main()
                                             strcat(msn, hour_str);
                                             strcat(msn, ":");
                                             strcat(msn, minute_str);
-                                            strcat(msn, " ");
                                             strcat(msn, msg_str);
                                             if(strcmp(msn, reminders[i])<0)
                                             {
@@ -150,7 +149,7 @@ int main()
             }
         }
     }
-    printf("\nDay Reminder\n");
+    printf("\nPromemoria inseriti\n");
     for(i=0; i<num_remind; i++)
     {
         printf("%s\n", reminders[i]);
