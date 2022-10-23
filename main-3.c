@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 int main()
 {
     char somma[50];
     char addendo[10];
     int i, j, k;
-    bool fermo;
     int numero, addizione;
     addizione=0;
-    fermo=false;
+    k=0;
     gets(somma);
-    for(i=6; i<50; i++)
+    for(i=4; i<50; i++)
     {
         if(somma[i]=='\0')
         {
@@ -20,21 +18,7 @@ int main()
         }else{
             if(somma[i]!=' ')
             {
-                for(k=0; k<10; k++)
-                {
-                    if(addendo[k]!='\0')
-                    {
-                        fermo=true;
-                        break;
-                    }
-                }
-                if(fermo==true)
-                {
-                    strcat(addendo, somma);
-                    fermo=false;
-                }else{
-                    strcpy(addendo, somma);
-                }
+                addendo[k++]=somma[i];
             }else{
                 numero=atoi(addendo);
                 addizione=addizione+numero;
@@ -42,6 +26,7 @@ int main()
                 {
                     addendo[j]='\0';
                 }
+                k=0;
             }
         }
     }
