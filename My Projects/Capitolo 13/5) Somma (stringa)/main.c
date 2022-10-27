@@ -15,6 +15,8 @@ int main()
     {
         if(somma[i]=='\0')
         {
+            numero=atoi(addendo);
+            addizione=addizione+numero;
             break;
         }else{
             if(somma[i]!=' ')
