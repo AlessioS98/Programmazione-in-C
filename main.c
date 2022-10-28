@@ -6,7 +6,10 @@ int main(int argc, char *argv[])
 {
     char *planets[]={"Mercurio", "Venere", "Terra", 
                      "Marte", "Giove", "Saturno",
-                     "Urano", "Nettuno", "Plutone"};
+                     "Urano", "Nettuno", "Plutone", 
+                     "mercurio", "venere", "terra", 
+                     "marte", "giove", "saturno",
+                     "urano", "nettuno", "plutone";
     int i, j;
     for(i=1; i<argc; i++)
     {
