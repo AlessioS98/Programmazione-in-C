@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1667085385 source:c:\users\utente\desktop\programmazione\my projects\capitolo 13\6) pianeti\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+

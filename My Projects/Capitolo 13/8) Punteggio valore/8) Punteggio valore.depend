@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1667085806 source:c:\users\utente\desktop\programmazione\my projects\capitolo 13\8) punteggio valore\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
