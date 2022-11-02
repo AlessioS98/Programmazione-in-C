@@ -7,7 +7,7 @@ int main()
     char parole[30][20];
     char frase[80];
     char terminazione;
-    int i, j, k, rimanente;
+    int i, j, k, rim, num, pros;
     int cont;
     printf("Inserisci una frase: ");
     gets(frase);
@@ -25,9 +25,9 @@ int main()
                 parole[k][j]=frase[i];
                 j++;
             }else{
-                for(rimanente=j; rimanente<20; rimanente++)
+                for(rim=j; rim<20; rim++)
                 {
-                    parole[k][j]='\0';
+                    parole[k][rim]='\0';
                 }
                 k++;
                 cont++;
@@ -35,13 +35,22 @@ int main()
             }
         }
     }
-    for(k=0; k<=cont; k++)
+    num=strlen(parole[cont]);
+    for(pros=num; pros<20; pros++)
     {
-        for(j=0; j<20; j++)
+        parole[cont][pros]='\0';
+    }
+    for(k=cont; k>=0; k--)
+    {
+        printf("%s", parole[k]);
+        if(k==0)
         {
-            printf("%c", parole[k][j]);
+            if(terminazione=='?' || terminazione=='!' || terminazione=='.')
+            {
+                printf("%c", terminazione);
+            }
         }
-        printf("\n");
+        printf(" ");
     }
     return 0;
 }
