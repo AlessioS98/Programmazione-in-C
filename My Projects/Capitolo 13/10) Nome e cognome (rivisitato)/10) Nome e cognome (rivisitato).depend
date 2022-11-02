@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1667404429 source:c:\users\utente\desktop\programmazione\my projects\capitolo 13\10) nome e cognome (rivisitato)\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<stdbool.h>
+
