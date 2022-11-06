@@ -52,17 +52,26 @@ bool are_anagrams(const char *word1, const char *word2)
             return false;
         }
     }
+    return true;
 }
 
 int main()
 {
+    int i;
     bool anagrammi;
     char firstword[30], secondword[30];
     printf("Inserisci la prima parola: ");
     gets(firstword);
     printf("Inserisci la seconda parola: ");
     gets(secondword);
-    anagrammi=true;
+    for(i=0; *(firstword+i)!='\0'; i++)
+    {
+        *(firstword+i)=tolower(*(firstword+i));
+    }
+    for(i=0; *(secondword+i)!='\0'; i++)
+    {
+        *(secondword+i)=tolower(*(secondword+i));
+    }
     anagrammi=are_anagrams(firstword, secondword);
     if(anagrammi==true)
     {
