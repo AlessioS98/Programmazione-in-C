@@ -1,51 +1,43 @@
-#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
 
-int main()
+bool are_anagrams(const char *word1, const char *word2)
 {
-    bool anagrammi;
-    char ch, firstword[30], secondword[30];
-    int i, j, k, occorrenze[26], resto;
-    j=0;
-    k=0;
-    anagrammi=true;
-    printf("Inserisci la prima parola: ");
-    ch=getchar();
-    for(i=0; ch!='\n'; i++)
+    int cont1, cont2, resto;
+    int occorrenze[26];
+    int i;
+    cont1=0;
+    cont2=0;
+    for(i=0; *(word1+i)!='\0'; i++)
     {
-        firstword[i]=tolower(ch);
-        ch=getchar();
-        j++;
+        cont1++;
     }
-    printf("Inserisci la seconda parola: ");
-    ch=getchar();
-    for(i=0; ch!='\n'; i++)
+    for(i=0; *(word2+i)!='\0'; i++)
     {
-        secondword[i]=tolower(ch);
-        ch=getchar();
-        k++;
+        cont2++;
     }
     for(i=0; i<26; i++)
     {
         occorrenze[i]=0;
     }
-    for(i=0; i<j; i++)
+    for(i=0; i<cont1; i++)
     {
-        if(firstword[i]>='a' && firstword[i]<='z')
+        if(*(word1+i)>='a' && *(word1+i)<='z')
         {
-            resto=firstword[i]%97;
+            resto=(*(word1+i))%97;
             occorrenze[resto]=occorrenze[resto]+1;
         }else{
             continue;
         }
     }
-    for(i=0; i<k; i++)
+    for(i=0; i<cont2; i++)
     {
-        if(secondword[i]>='a' && secondword[i]<='z')
+        if(*(word2+i)>='a' && *(word2+i)<='z')
         {
-            resto=secondword[i]%97;
+            resto=(*(word2+i))%97;
             occorrenze[resto]=occorrenze[resto]-1;
         }else{
             continue;
@@ -57,14 +49,35 @@ int main()
         {
             continue;
         }else{
-            anagrammi=false;
-            break;
+            return false;
         }
     }
+    return true;
+}
+
+int main()
+{
+    int i;
+    bool anagrammi;
+    char firstword[30], secondword[30];
+    printf("Inserisci la prima parola: ");
+    gets(firstword);
+    printf("Inserisci la seconda parola: ");
+    gets(secondword);
+    for(i=0; *(firstword+i)!='\0'; i++)
+    {
+        *(firstword+i)=tolower(*(firstword+i));
+    }
+    for(i=0; *(secondword+i)!='\0'; i++)
+    {
+        *(secondword+i)=tolower(*(secondword+i));
+    }
+    anagrammi=are_anagrams(firstword, secondword);
     if(anagrammi==true)
     {
         printf("Le parole inserite sono anagrammi\n");
     }else{
         printf("Le parole inserite non sono anagrammi\n");
     }
+    return 0;
 }
