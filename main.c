@@ -1,42 +1,39 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool>
+#include <stdbool.h>
+#include <ctype.h>
 
 bool is_palindrome(const char *message)
 {
-    bool stop;
     char reverse[50];
-    int j;
-    int ultimo;
+    int j, i, k;
+    int ultimo, sostegno;
     ultimo=0;
     for(i=0; *(message+i)!='\0'; i++)
     {
-        
+        ultimo++;
+    }
+    sostegno=ultimo;
+    for(j=0; ultimo>=0; j++)
+    {
+        reverse[j]=*(message+ultimo);
+        ultimo--;
+    }
+    for(k=sostegno+1; k<50; k++)
+    {
+        reverse[k]='\0';
     }
     for(j=0; j<50; j++)
     {
-        reverse[j]=*(message+j;
-        carattere--;
-    }
-    carattere++;
-    for(j=0; j<numero; j++)
-    {
-        if(reverse[j]==*carattere)
+        if(reverse[j]==*(message+j))
         {
-            carattere++;
             continue;
         }else{
-            stop=true;
-            break;
+            return true;
         }
     }
-    if(stop==true)
-    {
-        printf("Non e' palindromo\n");
-    }else{
-        printf("Palindromo\n");
-    }
+    return false;
 }
 
 int main()
@@ -58,5 +55,11 @@ int main()
         }
     }
     palindromo=is_palindrome(frase);
+    if(palindromo==true)
+    {
+        printf("Non e' palindromo\n");
+    }else{
+        printf("E' palindromo\n");
+    }
     return 0;
 }
