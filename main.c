@@ -6,50 +6,48 @@
 
 bool is_palindrome(const char *message)
 {
-    char reverse[50];
-    int j, i, k;
-    int ultimo, sostegno;
-    ultimo=0;
-    for(i=0; *(message+i)!='\0'; i++)
-    {
-        ultimo++;
-    }
-    sostegno=ultimo;
-    for(j=0; ultimo>=0; j++)
-    {
-        reverse[j]=*(message+ultimo);
-        ultimo--;
-    }
-    for(k=sostegno+1; k<50; k++)
-    {
-        reverse[k]='\0';
-    }
-    for(j=0; j<50; j++)
-    {
-        if(reverse[j]==*(message+j))
-        {
-            continue;
-        }else{
-            return true;
-        }
-    }
-    return false;
+   char reverse[50];
+   int i, j, len;
+   len=0;
+   for(i=0; i<50; i++)
+   {
+       if(*(message+i)!='\0')
+       {
+           len++;
+       }else{
+           break;
+       }
+   }
+   for(j=0; len>0; j++)
+   {
+       reverse[j]=*(message+len-1);
+       len--;
+   }
+   for(i=0; i<len; i++)
+   {
+       if(reverse[i]==*(message+i))
+       {
+           continue;
+       }else{
+           return false;
+       }
+   }
+   return true;
 }
 
 int main()
 {
     char frase[50];
-    int i;
+    int i, j, lunghezza;
     bool palindromo;
     printf("Inserisci una frase: ");
     gets(frase);
-    i=0;
-    while(frase[i]!='\0')
+    lunghezza=strlen(frase);
+    for(j=0; j<lunghezza; j++)
     {
-        if((frase[i]>='a' && frase[i]<='z') || (frase[i]>='A' && frase[i]<='Z'))
+        if(frase[j]>='A' && frase[j]<='Z')
         {
-            frase[i]=tolower(frase[i]);
-            i++;
+            frase[j]=tolower(frase[j]);
         }else{
             continue;
         }
@@ -57,9 +55,9 @@ int main()
     palindromo=is_palindrome(frase);
     if(palindromo==true)
     {
-        printf("Non e' palindromo\n");
-    }else{
         printf("E' palindromo\n");
+    }else{
+        printf("Non e' palindromo\n");
     }
     return 0;
 }
