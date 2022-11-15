@@ -23,22 +23,18 @@ bool is_palindrome(const char *message)
        reverse[j]=*(message+len-1);
        len--;
    }
-   for(i=0; i<len; i++)
+   if(strcmp(reverse, message)==0)
    {
-       if(reverse[i]==*(message+i))
-       {
-           continue;
-       }else{
-           return false;
-       }
+       return true;
+   }else{
+       return false;
    }
-   return true;
 }
 
 int main()
 {
     char frase[50];
-    int i, j, lunghezza;
+    int j, lunghezza;
     bool palindromo;
     printf("Inserisci una frase: ");
     gets(frase);
