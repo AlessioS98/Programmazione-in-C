@@ -7,7 +7,7 @@
 bool is_palindrome(const char *message)
 {
    char reverse[50];
-   int i, j, len;
+   int i, j, k, len;
    len=0;
    for(i=0; i<50; i++)
    {
@@ -23,12 +23,24 @@ bool is_palindrome(const char *message)
        reverse[j]=*(message+len-1);
        len--;
    }
+   for(k=j; k<50; k++)
+   {
+       reverse[k]='\0';
+   }
+   if(strcmp(reverse, message)==0)
+   {
+       return true;
+   }else{
+       return false;
+   }
 }
 
 int main()
 {
     char frase[50], ch;
+    int i;
     bool palindromo;
+    i=0;
     printf("Inserisci una frase: ");
     ch=getchar();
     while(ch!='\n')
@@ -37,10 +49,12 @@ int main()
         {
             frase[i]=tolower(ch);
             ch=getchar();
+            i++;
         }else{
             ch=getchar();
         }
     }
+    frase[i]='\0';
     palindromo=is_palindrome(frase);
     if(palindromo==true)
     {
