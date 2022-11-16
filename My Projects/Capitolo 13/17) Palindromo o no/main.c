@@ -23,29 +23,22 @@ bool is_palindrome(const char *message)
        reverse[j]=*(message+len-1);
        len--;
    }
-   if(strcmp(reverse, message)==0)
-   {
-       return true;
-   }else{
-       return false;
-   }
 }
 
 int main()
 {
-    char frase[50];
-    int j, lunghezza;
+    char frase[50], ch;
     bool palindromo;
     printf("Inserisci una frase: ");
-    gets(frase);
-    lunghezza=strlen(frase);
-    for(j=0; j<lunghezza; j++)
+    ch=getchar();
+    while(ch!='\n')
     {
-        if(frase[j]>='A' && frase[j]<='Z')
+        if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z'))
         {
-            frase[j]=tolower(frase[j]);
+            frase[i]=tolower(ch);
+            ch=getchar();
         }else{
-            continue;
+            ch=getchar();
         }
     }
     palindromo=is_palindrome(frase);
