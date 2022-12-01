@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1669912878 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\1) giustificazione\justify.c
+	<string.h>
+	"line.h"
+	"word.h"
+
+1669911935 c:\users\utente\desktop\programmazione\my projects\capitolo 15\1) giustificazione\line.h
+
+1669911297 c:\users\utente\desktop\programmazione\my projects\capitolo 15\1) giustificazione\word.h
+
+1669912865 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\1) giustificazione\word.c
+	<stdio.h>
+	"word.h"
+
+1669913904 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\1) giustificazione\line.c
+	<stdio.h>
+	<string.h>
+	"line.h"
+
