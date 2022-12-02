@@ -23,7 +23,7 @@ void add_word(const char *word)
         line_len++;
     }
     strcat(line, word);
-    line_len=strlen(word)+1;
+    line_len+=strlen(word);
     num_words++;
 }
 
@@ -47,7 +47,7 @@ void write_line(void)
             {
                 putchar(' ');
             }
-            extra_spaces=--spaces_to_insert;
+            extra_spaces-=spaces_to_insert;
             num_words--;
         }
     }
