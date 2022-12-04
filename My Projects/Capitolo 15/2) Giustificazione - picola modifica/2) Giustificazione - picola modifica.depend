@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1670169687 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\2) giustificazione - picola modifica\line.c
+	<stdio.h>
+	<string.h>
+	"line.h"
+
+1670169753 c:\users\utente\desktop\programmazione\my projects\capitolo 15\2) giustificazione - picola modifica\line.h
+
+1670169421 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\2) giustificazione - picola modifica\justify.c
+	<string.h>
+	"line.h"
+	"word.h"
+
+1670169816 c:\users\utente\desktop\programmazione\my projects\capitolo 15\2) giustificazione - picola modifica\word.h
+
+1670169934 source:c:\users\utente\desktop\programmazione\my projects\capitolo 15\2) giustificazione - picola modifica\word.c
+	<stdio.h>
+	"word.h"
+
