@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1671187323 source:c:\users\utente\desktop\programmazione\my projects\capitolo 16\2) inventario\inventory.c
+	<stdio.h>
+	"readline.h"
+
+1671125051 c:\users\utente\desktop\programmazione\my projects\capitolo 16\2) inventario\readline.h
+
+1671125408 source:c:\users\utente\desktop\programmazione\my projects\capitolo 16\2) inventario\readline.c
+	<ctype.h>
+	<stdio.h>
+	"readline.h"
+
