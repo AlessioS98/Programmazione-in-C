@@ -21,24 +21,19 @@ int main()
     for(;;)
     {
         printf("Inserisci un codice operazione: ");
-        code=getchar();
+        scanf("%c", &code);
         switch(code)
         {
             case 'i': insert();
-                      code=getchar();
                       break;
             case 's': search();
-                      code=getchar();
                       break;
             case 'u': update();
-                      code=getchar();
                       break;
             case 'p': print();
-                      code=getchar();
                       break;
             case 'q': return 0;
             default: printf("Codice inesistente\n");
-                     code=getchar();
         }
         printf("\n");
     }
@@ -113,8 +108,36 @@ void update(void)
 
 void print(void)
 {
-    int i;
+    struct part supporto;
+    int minimo;
+    int i, j, k, indicemin;
     printf("Numero componente     Nome componente     Quantita' componente\n");
+    j=0;
+    while(j<num_parts)
+    {
+        minimo=inventory[j].number;
+        supporto=inventory[j];
+        for(i=j; i<num_parts; i++)
+        {
+            if(inventory[i].number<minimo)
+            {
+                minimo=inventory[i].number;
+            }else{
+                continue;
+            }
+        }
+        for(k=j; k<num_parts; k++)
+        {
+            if(minimo==inventory[k].number)
+            {
+                indicemin=k;
+                break;
+            }
+        }
+        inventory[j]=inventory[indicemin];
+        inventory[indicemin]=supporto;
+        j++;
+    }
     for(i=0; i<num_parts; i++)
     {
         printf("%7d       %-25s%11d\n", inventory[i].number, inventory[i].name, inventory[i].on_hand);
