@@ -1,23 +1,29 @@
 #include <stdio.h>
 #include "readline.h"
+#include <stdbool.h>
+#include <string.h>
 #define NAME_LEN 25
 #define MAX_PARTS 100
 
 struct part{
-        int number;
-        char name[NAME_LEN+1];
-        int on_hand;
-    };
+    int number;
+    char name[NAME_LEN+1];
+    int on_hand;
+};
+bool fermo=false;
 int find_part(int number, struct part inventory[], int num_parts);
-void insert(int num_parts, struct part inventory[]);
+struct part insert(int *num_parts, struct part inventory[]);
 void search(struct part inventory[], int num_parts);
-void update(struct part inventory[], int num_parts);
+int update(struct part inventory[], int num_parts, int *indice);
 void print(int num_parts, struct part inventory[]);
 
 int main()
 {
     struct part inventory[MAX_PARTS];
     int num_parts=0;
+    struct part materiale;
+    int incremento;
+    int index=0;
     char code;
     for(;;)
     {
@@ -25,12 +31,27 @@ int main()
         scanf("%c", &code);
         switch(code)
         {
-            case 'i': insert(num_parts, inventory);
-                      break;
+            case 'i': materiale=insert(&num_parts, inventory);
+                      if(fermo==true)
+                      {
+                          break;
+                      }else{
+                          inventory[num_parts-1].number=materiale.number;
+                          strcpy(inventory[num_parts-1].name, materiale.name);
+                          inventory[num_parts-1].on_hand=materiale.on_hand;
+                          fermo=false;
+                          break;
+                      }
             case 's': search(inventory, num_parts);
                       break;
-            case 'u': update(inventory, num_parts);
-                      break;
+            case 'u': incremento=update(inventory, num_parts, &index);
+                      if(incremento==1)
+                      {
+                          break;
+                      }else{
+                          inventory[index].on_hand=inventory[index].on_hand+incremento;
+                          break;
+                      }
             case 'p': print(num_parts, inventory);
                       break;
             case 'q': return 0;
@@ -53,27 +74,31 @@ int find_part(int number, struct part inventory[], int num_parts)
     return -1;
 }
 
-void insert(int num_parts, struct part inventory[])
+struct part insert(int *num_parts, struct part inventory[])
 {
     int part_number;
-    if(num_parts==MAX_PARTS)
+    struct part newmaterial;
+    if(*num_parts==MAX_PARTS)
     {
         printf("Il Database e' pieno, non puoi aggiungere altri componenti.\n");
-        return;
+        fermo=true;
+        return newmaterial;
     }
     printf("Inserisci numero componente: ");
     scanf("%d", &part_number);
-    if(find_part(part_number, inventory, num_parts)>=0)
+    if(find_part(part_number, inventory, *num_parts)>=0)
     {
         printf("Componente gia' esistente.\n");
-        return;
+        fermo=true;
+        return newmaterial;
     }
-    inventory[num_parts].number=part_number;
+    newmaterial.number=part_number;
     printf("Inserisci il nome del componente: ");
-    read_line(inventory[num_parts].name, NAME_LEN);
+    read_line(newmaterial.name, NAME_LEN);
     printf("Inserisci quantita' componente: ");
-    scanf("%d", &inventory[num_parts].on_hand);
-    num_parts++;
+    scanf("%d", &newmaterial.on_hand);
+    *num_parts=*num_parts+1;
+    return newmaterial;
 }
 
 void search(struct part inventory[], int num_parts)
@@ -91,7 +116,7 @@ void search(struct part inventory[], int num_parts)
     }
 }
 
-void update(struct part inventory[], int num_parts)
+int update(struct part inventory[], int num_parts, int *indice)
 {
     int i, number, change;
     printf("Inserisci numero componente: ");
@@ -99,11 +124,13 @@ void update(struct part inventory[], int num_parts)
     i=find_part(number, inventory, num_parts);
     if(i>=0)
     {
+        *indice=i;
         printf("Aggiungi quantita': ");
         scanf("%d", &change);
-        inventory[i].on_hand+=change;
+        return change;
     }else{
         printf("Componente non trovato.\n");
+        return 1;
     }
 }
 

@@ -6,7 +6,9 @@
 
 1671577112 c:\users\utente\desktop\programmazione\my projects\capitolo 16\3) inventario - rivisitato\readline.h
 
-1671579640 source:c:\users\utente\desktop\programmazione\my projects\capitolo 16\3) inventario - rivisitato\inventory.c
+1671750713 source:c:\users\utente\desktop\programmazione\my projects\capitolo 16\3) inventario - rivisitato\inventory.c
 	<stdio.h>
 	"readline.h"
+	<stdbool.h>
+	<string.h>
 
